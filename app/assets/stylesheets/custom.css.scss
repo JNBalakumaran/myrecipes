@@ -3,7 +3,7 @@ $navbar-default-bg: #073B15;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.center{
+.center {
 	text-align: center;
 }
 
@@ -78,4 +78,12 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 15px;
+}
+
+.description {
+  margin-top: 0;
+}
+
+.well a {
+  color: #073B15;
 }
