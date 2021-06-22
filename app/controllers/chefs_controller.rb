@@ -12,7 +12,6 @@ class ChefsController < ApplicationController
 	end
 
 	def create
-		#debugger
 		@chef = Chef.new(chef_params)
 		if @chef.save
 			session[:chef_id] = @chef.id
