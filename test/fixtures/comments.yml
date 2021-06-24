@@ -1,0 +1,10 @@
+<% 25.times do |n| %>
+comment_<%= n %>:
+ id: <%= n %>
+ description: |+
+              1.Cut the chicken into strips
+              2.Heat oil
+              3.Fry the marinated chicken
+ chef_id: <%= n %>
+ recipe_id: <%= n+1 %>
+<% end %>
