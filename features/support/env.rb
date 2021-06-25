@@ -87,3 +87,24 @@ Before('@javascript') do |scenario|
         Capybara::Selenium::Driver.new(app, browser: :firefox, profile: profile, http_client: http_client,:desired_capabilities => capabilities)
    end
   end
+
+Before do |scenario|
+ DatabaseCleaner.clean_with(:truncation)
+ #load Rails.root.join('db:fixtures')
+ #Fixtures.create_fixtures(“test/fixtures”)
+
+ ActiveRecord::FixtureSet.reset_cache
+ fixtures_folder = File.join(Rails.root, 'test', 'fixtures')
+ fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }
+ ActiveRecord::FixtureSet.create_fixtures(fixtures_folder, fixtures)
+ sleep 1
+end
+
+After do |scenario|
+ Capybara.current_session.driver.quit
+ DatabaseCleaner.clean
+end
+
+AfterStep do
+ sleep 1
+end

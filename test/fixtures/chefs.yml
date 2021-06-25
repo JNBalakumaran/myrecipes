@@ -4,5 +4,5 @@ chef_<%= n %>:
  chefname: <%= "Chef #{n}" %>
  email: <%= "chef-#{n}@example.com" %>
  password_digest: <%= BCrypt::Password.create('testpassword') %>
- admin: false
+ admin: <%= n%10 == 0 ? true : false %>
 <% end %>
