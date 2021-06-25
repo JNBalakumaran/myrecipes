@@ -58,7 +58,10 @@ class ChefsController < ApplicationController
 		end
 
 		def require_same_user
-			if current_chef != @chef and !current_chef.admin?
+			if !logged_in?
+				flash[:danger] = "You must be logged in to perform that action"
+				redirect_to chefs_path
+			elsif current_chef != @chef and !current_chef.admin?
 				flash[:danger] = "You can only edit or delete your own account"
 				redirect_to chefs_path
 			end
