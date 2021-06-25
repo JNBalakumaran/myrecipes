@@ -14,9 +14,9 @@ ENV["RAILS_ENV"] =  "test"
 
 Capybara.default_driver = :selenium
 Capybara.server = :webrick
-Capybara.app_host= "http://localhost:3000"
+Capybara.app_host= "http://localhost:8000"
 Capybara.server_host= "localhost"
-Capybara.server_port= "3000"
+Capybara.server_port= "8000"
 
 
 # frozen_string_literal: true
