@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment was created successfully"
       redirect_to recipe_path(@recipe)
     else
-      flash[:danger] = "Comment was not created"
+      flash[:danger] = "Please try again - Comment should contain min 5 and max 200 characters only"
       redirect_to :back
     end
   end
